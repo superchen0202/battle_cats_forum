@@ -1,0 +1,20 @@
+<% if story.errors.any? %>
+<ul>
+    <% story.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+</ul>
+<% end %>
+
+<%= form_for story do |story| %>
+
+    <%= story.label :title, "標題", class: "title" %> 
+    <%= story.text_field :title, class: "input is-primary is-large" %>
+
+    <%= story.label :content, "內文", class: "title" %>
+    <%= story.text_area :content, class: "textarea is-primary is-large" %>
+
+    <%= story.submit "儲存草稿", name: "draft", class: "button is-primary" %>
+    <%= story.submit "發布文章", name: "published", class: "button is-success" %>
+
+<% end %>

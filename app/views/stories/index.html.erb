@@ -1,0 +1,22 @@
+<h1 class ="title">故事列表</h1>
+
+<% @stories.each do |story| %>
+
+<div class="content">
+
+    <h2 class="title">
+        <%= link_to story.title, story_path(story.id)  %>
+        <% if story.status == "published" %><span class="tag is-success">已發布</span><% end %>
+        <% if story.status == "draft" %><span class="tag is-warning">尚未發布</span><% end %>
+    </h2>
+
+    <p><%= story.content %></p>
+
+    <p>
+        <%= time_ago_in_words(story.updated_at) %>
+        <%= link_to "編輯", edit_story_path(story.id), class: "button is-small is-primary" %>
+        <%= link_to "刪除", story_path(story.id), method: "delete", data:{confirm: "確定刪除?"}, class: "button is-small is-danger"  %>
+    </p>
+</div>
+
+<% end %>
