@@ -36,6 +36,7 @@ class StoriesController < ApplicationController
     end
 
     def update
+
         if @story.update(story_params)
             case
             when params[:publish]
@@ -65,7 +66,7 @@ class StoriesController < ApplicationController
     end
 
     def find_story
-        @story = current_user.stories.find(params[:id])
+        @story = current_user.stories.friendly.find(params[:id])
     end
 
 end

@@ -10,6 +10,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'devise', '~> 4.2'
 gem 'aasm', '~> 4.11'
 gem 'friendly_id', '~> 5.4', '>= 5.4.1'
+gem 'babosa', '~> 1.0', '>= 1.0.4'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
