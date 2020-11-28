@@ -1,3 +1,6 @@
-<h1 class="title">編輯故事</h1>
+<h1 class="title">編輯故事
+<% if @story.status == "published" %><span class="tag is-success">已發布</span><% end %>
+<% if @story.status == "draft" %><span class="tag is-warning">尚未發布</span><% end %>
+</h1>
 
 <%= render "storyform", story: @story %>

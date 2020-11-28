@@ -1,20 +1,22 @@
 <% if story.errors.any? %>
-<ul>
-    <% story.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-</ul>
+    <div class="notification is-primary"><%= story.errors.full_messages.to_sentence %></div>
 <% end %>
 
-<%= form_for story do |story| %>
+<%= form_for story do |form| %>
 
-    <%= story.label :title, "標題", class: "title" %> 
-    <%= story.text_field :title, class: "input is-primary is-large" %>
+    <%= form.label :title, "標題", class: "title" %> 
+    <%= form.text_field :title, class: "input is-primary is-large" %>
 
-    <%= story.label :content, "內文", class: "title" %>
-    <%= story.text_area :content, class: "textarea is-primary is-large" %>
+    <%= form.label :content, "內文", class: "title" %>
+    <%= form.text_area :content, class: "textarea is-primary is-large" %>
 
-    <%= story.submit "儲存草稿", name: "draft", class: "button is-primary" %>
-    <%= story.submit "發布文章", name: "published", class: "button is-success" %>
+    <% if story.published? %>
+        <%= form.submit '更新', name: 'save_as_draft', class: 'button is-medium'%>
+    <% else %>
+        <%= form.submit '儲存草稿', name: 'save_as_draft', class: 'button is-medium'%>
+    <% end %>
+
+  <%= form.submit '發佈文章', name: 'publish', class: 'button is-medium is-primary' if story.may_publish? %>
+  <%= form.submit '文章下架', name: 'unpublish', class: 'button is-medium is-danger' if story.may_unpublish? %>
 
 <% end %>

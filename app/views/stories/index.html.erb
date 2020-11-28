@@ -5,7 +5,7 @@
 <div class="content">
 
     <h2 class="title">
-        <%= link_to story.title, story_path(story.id)  %>
+        <%= link_to story.title, edit_story_path(story.id), class: "has-text-grey-dark" %>
         <% if story.status == "published" %><span class="tag is-success">已發布</span><% end %>
         <% if story.status == "draft" %><span class="tag is-warning">尚未發布</span><% end %>
     </h2>
