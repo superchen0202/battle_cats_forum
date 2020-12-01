@@ -1,49 +1,73 @@
-<h2>編輯個人資訊 <%= resource_name.to_s.humanize %></h2>
+<h2 class= "title">編輯個人資訊 <% resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+
+  <!-- USERNAME -->
+  <div class="field">
+    <%= f.label :username, "使用者名稱" %><br/>
+    <div class="control">
+      <%= f.text_field :username, autofocus: true, class: "input is-medium" %>
+    </div>
+    <p class="help">給自己個暱稱吧！</p>
+  </div>
+
+  <!-- e-mail -->
   <div class="field">
     <%= f.label :email %><br />
     <div class="control">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
+    <%= f.email_field :email, autocomplete: "email", class: "input is-medium" %>
+    </div>
+    <p class="help">常用信箱 範例：example@gmal.com</p>
+  </div>
+
+  <!-- Intro -->
+  <div class="field">
+    <%= f.label :intro, "自我介紹" %><br/>
+    <div class="control">
+      <%= f.text_area :intro, class: "textarea is-medium", rows: 5, placeholder: "向別人介紹一下你自己吧！" %>
     </div>
   </div>
+
+
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <!-- password -->
+  <!-- <div class="field">
+    <%= f.label :password, "密碼" %> <i>(leave blank if you don't want to change it)</i><br />
     <div class="control">
-    <%= f.password_field :password, autocomplete: "new-password", class: "input" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "input is-medium" %>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
     </div>
-  </div>
+  </div> -->
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
+  <!-- password confirm -->
+  <!-- <div class="field">
+    <%= f.label :password_confirmation, "確認密碼" %><br />
     <div class="control">
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input is-medium" %>
     </div>
-  </div>
+  </div> -->
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <!-- current password -->
+  <!-- <div class="field">
+    <%= f.label :current_password, "輸入密碼以確認變更" %> <i>(we need your current password to confirm your changes)</i><br />
     <div class="control">
-    <%= f.password_field :current_password, autocomplete: "current-password", class: "input" %>
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "input is-medium" %>
   </div>
-  </div>
+  </div> -->
 
-  <div class="actions">
-    <%= f.submit "更新", class: "button is-primary" %>
-  </div>
+  <!-- 更新 -->
+  <div class="actions"><%= f.submit "更新", class: "button is-primary" %></div>
+
+  <!-- <p> <%= button_to "刪除帳號", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button is-danger"%></p> -->
+  <%= link_to "Back", :back %>
+
 <% end %>
-
-<p> <%= button_to "刪除帳號", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button is-danger"%></p>
-
-<%= link_to "Back", :back %>
