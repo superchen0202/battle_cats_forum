@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   resources :stories
 
+
+  get '/demo', to: 'pages#demo'
+
 end
