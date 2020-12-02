@@ -43,7 +43,8 @@
           <% if user_signed_in? %>
           
           <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link"><%= current_user.email %>, 你好</a>
+         
+            <a class="navbar-link"><%= avatar_tag( current_user, size: 50) %> <%= current_user.email %>, 你好</a>
             
             <div class="navbar-dropdown">
               <%= link_to "編輯個人資訊", edit_user_registration_path, method: 'get', class: "navbar-item" %>

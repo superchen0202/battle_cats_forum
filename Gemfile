@@ -12,6 +12,7 @@ gem 'aasm', '~> 4.11'
 gem 'friendly_id', '~> 5.4', '>= 5.4.1'
 gem 'babosa', '~> 1.0', '>= 1.0.4'
 gem 'webpacker', '~> 5.2', '>= 5.2.1'
+gem 'mini_magick', '~> 4.11'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -32,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

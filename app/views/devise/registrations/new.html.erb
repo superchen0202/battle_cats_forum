@@ -13,6 +13,16 @@
     <p class="help">給自己個暱稱吧！</p>
   </div>
 
+  <!-- Avatar -->
+  <div class="field">
+    <%= f.label :avatar, "大頭照" %><br/>
+    <div class="control">
+      <%= f.file_field :avatar %>
+    </div>
+    <p class="help">上傳一張大頭照</p>
+  </div>
+  
+
   <!-- Email -->
   <div class="field">
     <%= f.label :email %><br />

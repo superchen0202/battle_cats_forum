@@ -3,8 +3,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-
-  <!-- USERNAME -->
+  <!-- Username -->
   <div class="field">
     <%= f.label :username, "使用者名稱" %><br/>
     <div class="control">
@@ -12,6 +11,18 @@
     </div>
     <p class="help">給自己個暱稱吧！</p>
   </div>
+
+  <!-- Avatar -->
+  <div class="field">
+    <%= f.label :avatar, "大頭照" %><br/>
+    <div class="control">
+      <%= f.file_field :avatar %>
+    </div>
+    <p class="help">上傳一張大頭照</p>
+  </div>
+  
+  <!-- Show Avatar -->
+  <%= avatar_tag(current_user, size: 100) %>
 
   <!-- e-mail -->
   <div class="field">
