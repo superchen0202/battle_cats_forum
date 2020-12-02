@@ -11,13 +11,14 @@
   </head>
 
   <body>
-    <%= render "shared/frontend/navbar" %>
-
-    <% if notice %>
-      <%= render "shared/frontend/flash" %>
-    <% end %>    
+    
     
     <div class="container">
+      <%= render "shared/frontend/navbar" %>
+
+        <% if notice %>
+          <%= render "shared/frontend/flash" %>
+        <% end %>      
       <%= yield %>
     </div>
     
