@@ -3,6 +3,16 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+  
+  <!-- USERNAME -->
+  <div class="field">
+    <%= f.label :username, "使用者名稱" %><br/>
+    <div class="control">
+      <%= f.text_field :username, autofocus: true, class: "input is-medium" %>
+    </div>
+    <p class="help">給自己個暱稱吧！</p>
+  </div>
+
   <!-- Email -->
   <div class="field">
     <%= f.label :email %><br />
@@ -11,6 +21,14 @@
     </div>
   </div>
   
+    <!-- Intro -->
+    <div class="field">
+      <%= f.label :intro, "自我介紹" %><br/>
+      <div class="control">
+        <%= f.text_area :intro, class: "textarea is-medium", rows: 5, placeholder: "向別人介紹一下你自己吧！" %>
+      </div>
+    </div>
+    
   <!-- Password -->
   <div class="field">
     <%= f.label :password%>
