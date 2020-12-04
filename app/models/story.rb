@@ -26,8 +26,7 @@ class Story < ApplicationRecord
   belongs_to :user
 
   validates :title, presence: true      
-  validates :username, presence: true, uniqueness: true   
-
+  
   default_scope{ where(deleted_at: nil) } #soft delete
 
   def destoy
