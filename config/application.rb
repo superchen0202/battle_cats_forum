@@ -12,7 +12,7 @@ module MyMedium
     config.load_defaults 5.2
     config.time_zone = "Taipei"
 
-    config.generator do |g|
+    config.generators do |g|
       g.assets false
       g.helper false
       g.test_framework false

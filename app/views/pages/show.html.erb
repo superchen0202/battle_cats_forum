@@ -5,6 +5,7 @@
         <h1 class="title"><%= @story.title %></h1>
 
         <span class="profile">
+            
             <figure class="media-right">
                 <%= image_tag @story.user.avatar.variant( resize: "50 x 50"), class: "avatar" if @story.user.avatar.attached? %>
             </figure>
@@ -23,17 +24,14 @@
 
             <footer>讚 0</footer>
         </article>
-    <hr>
+        
+        <hr>
+
 
         <section class="comments">
             <h2>留言</h2>
-
-            <section class="comment-editor">
-                <form action="" method="post">
-                    <textarea name="" id="" rows="8" cols="40" class="textarea is-small"></textarea>
-                    <button type="submit" class="button is-primary is-fullwidth">送出</button>
-                </form>
-            </section>
+            
+            <%= render 'comment_area' %>
 
             <section>
                 <article class="comment">
