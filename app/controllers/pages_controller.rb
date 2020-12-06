@@ -9,10 +9,11 @@ class PagesController < ApplicationController
         @stories = Story.published_stories
     end
 
+    #find the article user selected to hanlde.
     def show
-        
+        @comment = @story.comments.new
+        @comments = @story.comments.order(id: :desc)
     end
-
 
     private
     def find_story

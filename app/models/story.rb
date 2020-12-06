@@ -33,6 +33,7 @@ class Story < ApplicationRecord
   #relation
   belongs_to :user
   has_one_attached :cover_img
+  has_many :comments
 
   #form validates
   validates :title, presence: true      

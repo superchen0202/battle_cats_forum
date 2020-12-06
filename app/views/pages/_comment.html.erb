@@ -1,0 +1,20 @@
+<!-- every single comment-->
+
+<article class="comment">
+
+    <span class="profile">
+        <%= image_tag @story.user.avatar.variant( resize: "50 x 50"), class: "avatar" if @story.user.avatar.attached? %>
+        <span class="username"><%= comment.user.username %></span>
+    </span>
+    
+    <%= simple_format(comment.content) %>
+
+    <!-- 編輯 / 刪除 留言：Not YET -->
+    <footer>
+        <span>讚 0</span>
+        發布時間：<%= comment.created_at %>
+        <%= link_to "編輯留言", '#', class: "button is-small is-primary is-outlined" %>
+        <%= link_to "刪除留言", '#', method: "delete", data:{confirm: "確定刪除?"}, class: "button is-small is-danger is-outlined"  %>
+    </footer>
+
+</article>
