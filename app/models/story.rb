@@ -23,21 +23,26 @@ class Story < ApplicationRecord
     end
   end
 
+  #soft delete
+  acts_as_paranoid
+  #default_scope{ where(deleted_at: nil) }
+  #def destoy
+  #  update(deleted_at: Time.now)
+  #end
+
+  #relation
   belongs_to :user
   has_one_attached :cover_img
 
+  #form validates
   validates :title, presence: true      
   
-  default_scope{ where(deleted_at: nil) } #soft delete
+
   #scope :published_stories, -> {where(status: "published")}
   scope :published_stories, -> {published.with_attached_cover_img.order(created_at: :desc).includes(:user)}
-  
-  def destoy
-    update(deleted_at: Time.now)
-  end
 
-   # instance methods
-   def normalize_friendly_id(input)
+  # instance methods
+  def normalize_friendly_id(input)
     input.to_s.to_slug.normalize(transliterations: :russian).to_s
   end
 
@@ -48,4 +53,5 @@ class Story < ApplicationRecord
       [:title, SecureRandom.hex[0,8]]
     ]
   end
+  
 end
