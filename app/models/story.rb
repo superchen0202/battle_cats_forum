@@ -24,11 +24,14 @@ class Story < ApplicationRecord
   end
 
   belongs_to :user
+  has_one_attached :cover_img
 
   validates :title, presence: true      
   
   default_scope{ where(deleted_at: nil) } #soft delete
-
+  #scope :published_stories, -> {where(status: "published")}
+  scope :published_stories, -> {published.with_attached_cover_img.order(created_at: :desc).includes(:user)}
+  
   def destoy
     update(deleted_at: Time.now)
   end

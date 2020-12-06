@@ -1,1 +1,58 @@
-<h1  class= "title">單篇文章內容</h1>
+<section class="columns has-text-centered story-content">
+    
+    <section class="column is-offset-3 is-6">
+        
+        <h1 class="title"><%= @story.title %></h1>
+
+        <span class="profile">
+            <figure class="media-right">
+                <%= image_tag @story.user.avatar.variant( resize: "50 x 50"), class: "avatar" if @story.user.avatar.attached? %>
+            </figure>
+            
+            <span class="username"><%= @story.user.username %></span>
+            <a href="#" class="follow-button">追蹤</a>
+        </span>
+
+        <article class="content">
+            
+            <figure class="media-right">
+                <%= image_tag @story.cover_img.variant( resize: "1000 x 500"), class: "cover-img" if @story.cover_img.attached? %>
+            </figure>
+            
+            <p><%= simple_format(@story.content) %></p>
+
+            <footer>讚 0</footer>
+        </article>
+    <hr>
+
+        <section class="comments">
+            <h2>留言</h2>
+
+            <section class="comment-editor">
+                <form action="" method="post">
+                    <textarea name="" id="" rows="8" cols="40" class="textarea is-small"></textarea>
+                    <button type="submit" class="button is-primary is-fullwidth">送出</button>
+                </form>
+            </section>
+
+            <section>
+                <article class="comment">
+                
+                    <span class="profile">
+                        <img src="https://fakeimg.pl/50x50/" class="avatar"> 
+                        <span class="username">高見龍</span>
+                    </span>
+                    
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </article>
+
+                <article class="comment">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </article>
+            </section>
+        
+        </section>
+
+    </section>
+
+</section>

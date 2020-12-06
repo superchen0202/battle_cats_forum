@@ -1,22 +1,41 @@
 <% if story.errors.any? %>
-    <div class="notification is-primary"><%= story.errors.full_messages.to_sentence %></div>
+    <div class="notification is-danger"><%= story.errors.full_messages.to_sentence %></div>
 <% end %>
 
 <%= form_for story do |form| %>
 
-    <%= form.label :title, "標題", class: "title" %> 
-    <%= form.text_field :title, class: "input is-primary is-large" %>
+    <!--標題  -->
+    <div class="field">
+        <%= form.label :title, "標題", class: "title" %> 
+        <%= form.text_field :title, class: "input is-primary is-large" %>
+    </div>
 
-    <%= form.label :content, "內文", class: "title" %>
-    <%= form.text_area :content, class: "textarea is-primary is-large" %>
+    <!-- 封面照 -->
+    <div class="field">
+        <%= form.label :cover_img, "封面圖" %>
+        <%= form.file_field :cover_img %>
 
-    <% if story.published? %>
-        <%= form.submit '更新', name: 'save_as_draft', class: 'button is-medium'%>
-    <% else %>
-        <%= form.submit '儲存草稿', name: 'save_as_draft', class: 'button is-medium'%>
-    <% end %>
+        <% if story.cover_img.attached? %>
+            <%= image_tag story.cover_img.variant( resize: "300 x 300"), class: "cover-img" %>
+        <% end %>
+    </div>
 
-  <%= form.submit '發佈文章', name: 'publish', class: 'button is-medium is-primary' if story.may_publish? %>
-  <%= form.submit '文章下架', name: 'unpublish', class: 'button is-medium is-danger' if story.may_unpublish? %>
+    <!-- 內文 -->
+    <div class="field">
+        <%= form.label :content, "內文", class: "title" %>
+        <%= form.text_area :content, class: "textarea is-primary is-large" %>
+    </div>
+
+    <!-- 更新 / 存草稿 / 下架 -->
+    <div class="field">
+        <% if story.published? %>
+            <%= form.submit '更新', name: 'save_as_draft', class: 'button is-medium'%>
+        <% else %>
+            <%= form.submit '儲存草稿', name: 'save_as_draft', class: 'button is-medium'%>
+        <% end %>
+
+        <%= form.submit '發佈文章', name: 'publish', class: 'button is-medium is-primary' if story.may_publish? %>
+        <%= form.submit '文章下架', name: 'unpublish', class: 'button is-medium is-danger' if story.may_unpublish? %>
+    </div>
 
 <% end %>

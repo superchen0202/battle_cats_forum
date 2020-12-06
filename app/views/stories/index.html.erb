@@ -10,12 +10,12 @@
         <% if story.status == "draft" %><span class="tag is-warning">尚未發布</span><% end %>
     </h2>
 
-    <p><%= story.content %></p>
+    <p><%= strip_tags(story.content).truncate(150) %></p>
 
     <p>
         <%= time_ago_in_words(story.updated_at) %>
-        <%= link_to "編輯", edit_story_path(story.id), class: "button is-small is-primary" %>
-        <%= link_to "刪除", story_path(story.id), method: "delete", data:{confirm: "確定刪除?"}, class: "button is-small is-danger"  %>
+        <%= link_to "編輯", edit_story_path(story.id), class: "button is-small is-primary is-outlined" %>
+        <%= link_to "刪除", story_path(story.id), method: "delete", data:{confirm: "確定刪除?"}, class: "button is-small is-danger is-outlined"  %>
     </p>
 </div>
 
