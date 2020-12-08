@@ -22,7 +22,14 @@
             
             <p><%= simple_format(@story.content) %></p>
 
-            <footer>讚 0</footer>
+                
+            <footer>
+                <%= link_to '#', class: 'claspButton' do %>
+                    <i class="far fa-thumbs-up"></i>
+                    <span class= "clapCount">0</span>
+              <% end %>
+            </footer>
+
         </article>
         
         <hr>

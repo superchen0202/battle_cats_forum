@@ -7,6 +7,7 @@
     "stimulus": "^1.1.1"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "webpack-dev-server": "^3.11.0"
   }
 }

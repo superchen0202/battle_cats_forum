@@ -11,7 +11,12 @@
 
     <!-- 編輯 / 刪除 留言：Not YET -->
     <footer>
-        <span>讚 0</span>
+       
+        <%= link_to '#', class: 'claspButton' do %>
+            <i class="far fa-thumbs-up"></i>
+            <span class= "clapCount">0</span>
+        <% end %>
+       
         發布時間：<%= comment.created_at %>
         <%= link_to "編輯留言", '#', class: "button is-small is-primary is-outlined" %>
         <%= link_to "刪除留言", '#', method: "delete", data:{confirm: "確定刪除?"}, class: "button is-small is-danger is-outlined"  %>
