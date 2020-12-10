@@ -4,14 +4,21 @@
         
         <h1 class="title"><%= @story.title %></h1>
 
-        <span class="profile">
+        <!-- Setting Data controller for stimulus -->
+        <span class="profile" data-controller = "user">
             
             <figure class="media-right">
                 <%= image_tag @story.user.avatar.variant( resize: "50 x 50"), class: "avatar" if @story.user.avatar.attached? %>
             </figure>
             
             <span class="username"><%= @story.user.username %></span>
-            <a href="#" class="follow-button">追蹤</a>
+
+            <%= link_to "#", class: "follow-button", data:{ action:"user#follow", 
+                                                            user: @story.user.id,
+                                                            target: "user.followButton" } do %>
+                                                            
+                 <%=  (user_signed_in? && current_user.follow?(@story.user)) ?  "追蹤": "取消追蹤" %>             
+             <% end %>
         </span>
 
         <article class="content">
@@ -22,7 +29,6 @@
             
             <p><%= simple_format(@story.content) %></p>
 
-                
             <footer>
                 <%= link_to '#', class: 'claspButton' do %>
                     <i class="far fa-thumbs-up"></i>

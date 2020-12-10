@@ -59,7 +59,7 @@ class StoriesController < ApplicationController
         redirect_to stories_path, notice: "故事已被刪除"
     
     end
-
+    
     private
     def story_params
         params.require(:story).permit(:title, :content, :cover_img)
