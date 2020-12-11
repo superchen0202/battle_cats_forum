@@ -13,11 +13,11 @@ export default class extends Controller {
         let buttton = this.followButtonTarget
       
         //API routes：
-        axios.post(`/users/${user}/follow`)
+        axios.post(`/api/users/${user}/follow`)
             .then(function(response){
                 
                 let status = response.data.status 
-                //console.log(response.data);         //{status: "追蹤"}, {status: "還沒登入"}
+                console.log(response.data);         //{status: "追蹤"}, {status: "還沒登入"}
                 //console.log(response.data.status);  //"追蹤", '還沒登入'
                 
                  switch(status){

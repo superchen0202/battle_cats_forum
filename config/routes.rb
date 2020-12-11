@@ -9,11 +9,13 @@ Rails.application.routes.draw do
 
 
   #API routes：/users/:id/follow
-  resources :users, only:[] do 
-    member do
-      post :follow
-    end
-  end 
+  namespace :api do 
+    resources :users, only:[] do 
+      member do
+        post :follow
+      end
+    end 
+  end
 
   resources :stories do
     resources :comments, only: [:create]

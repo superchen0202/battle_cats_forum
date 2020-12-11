@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::UsersController < Api::BaseController
   
   before_action :find_user
   skip_before_action :verify_authenticity_token, only: [:follow]
