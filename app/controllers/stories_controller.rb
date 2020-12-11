@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
 
     before_action :authenticate_user!, except: [:like]
-    before_action :find_story, only: [:show, :edit, :update, :destroy]
+    before_action :find_story, only: [:show, :edit, :update, :destroy,]
     skip_before_action :verify_authenticity_token, only: [:like]
     
     def index
@@ -64,11 +64,10 @@ class StoriesController < ApplicationController
 
     def like
       if user_signed_in?
-        render json: {status: 'OK!' }
+        render json: {status: "登入" }
       else
         render json: {status: '還沒登入'}
       end
-
     end
       
 

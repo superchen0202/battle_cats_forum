@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many :stories
   has_many :follows
+  has_many :likes
 
   validates :username, presence: true, uniqueness: true   
 
@@ -26,6 +27,20 @@ class User < ApplicationRecord
     end
   end
 
-  def 
+  def like?(story)
+    likes.exists?(story_id: story.id)
+  end
+
+  def like!(story)
+    
+    if like?(story)
+      likes.find_by(story_id: story.id).destroy
+      return "收回讚"
+    else
+      likes.create(story_id: story.id)
+      return "讚讚讚"
+    end
+
+  end
 
 end
