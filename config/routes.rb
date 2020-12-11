@@ -8,20 +8,36 @@ Rails.application.routes.draw do
   }
 
 
-  #API routes：/users/:id/follow
-  namespace :api do 
+  #API routes：
+  namespace :api do
+    
+    # /api/users/:id/follow
     resources :users, only:[] do 
       member do
         post :follow
       end
-    end 
+    end
+
+    # /api/stories/:id/like
+    # resources :stories, only:[] do
+    #   member do
+    #     post :like 
+    #   end
+    # end 
+    
   end
+  
+  resources :stories, only:[] do
+    member do
+      post :like 
+    end
+  end 
+
 
   resources :stories do
     resources :comments, only: [:create]
   end 
   
-
   get '@:username/:story_id', to: 'pages#show', as: 'story_page'
   get '@:username', to: 'pages#user', as: 'user_page' 
 

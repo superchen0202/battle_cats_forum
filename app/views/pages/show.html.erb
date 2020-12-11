@@ -4,7 +4,7 @@
         
         <h1 class="title"><%= @story.title %></h1>
 
-        <!-- Setting Data controller for stimulus -->
+        <!-- Function Follow  -->
         <span class="profile" data-controller = "user">
             
             <figure class="media-right">
@@ -29,10 +29,11 @@
             
             <p><%= simple_format(@story.content) %></p>
 
-            <footer>
-                <%= link_to '#', class: 'claspButton' do %>
+            <!-- Like for some story -->
+            <footer data-controller="story">
+                <%= link_to '#', class: 'likeButton', data:{ action: "story#addLike", slug: @story.slug} do %>
                     <i class="far fa-thumbs-up"></i>
-                    <span class= "clapCount">0</span>
+                    <span class= "likeCounter" data-target="story.likeCounter">0</span>
               <% end %>
             </footer>
 

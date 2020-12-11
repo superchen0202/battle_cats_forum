@@ -1,7 +1,8 @@
 class StoriesController < ApplicationController
 
-    before_action :authenticate_user!
+    before_action :authenticate_user!, except: [:like]
     before_action :find_story, only: [:show, :edit, :update, :destroy]
+    skip_before_action :verify_authenticity_token, only: [:like]
     
     def index
         @stories = current_user.stories.order(created_at: :desc)
@@ -60,6 +61,17 @@ class StoriesController < ApplicationController
     
     end
     
+
+    def like
+      if user_signed_in?
+        render json: {status: 'OK!' }
+      else
+        render json: {status: '還沒登入'}
+      end
+
+    end
+      
+
     private
     def story_params
         params.require(:story).permit(:title, :content, :cover_img)

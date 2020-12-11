@@ -26,19 +26,6 @@ class User < ApplicationRecord
     end
   end
 
+  def 
+
 end
-
-# copy of teacher's code 
-# def follow?(user)
-#   follows.exists?(following: user)
-# end
-
-# def follow!(user)
-#   if follow?(user)
-#     follows.find_by(following: user).destroy
-#     return 'Follow'
-#   else
-#     follows.create(following: user)
-#     return 'Followed'
-#   end
-# end
