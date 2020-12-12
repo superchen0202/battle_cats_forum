@@ -12,13 +12,13 @@ export default class extends Controller {
         let target = this.likeCounterTarget
         //console.log(target)
 
-        axios.post(`/stories/${slug}/like`)
+        axios.post(`/api/stories/${slug}/like`)
                 
                 .then(function(response){
                     let status = response.data.status
                     
                     switch(status) {
-                        case "還沒登入":
+                        case "請先登入":
                             alert("請先登入！")
                             break
                         default:

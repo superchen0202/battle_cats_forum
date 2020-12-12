@@ -21,8 +21,8 @@ export default class extends Controller {
                 //console.log(response.data.status);  //"追蹤", '還沒登入'
                 
                  switch(status){
-                     case '還沒登入':
-                         alert("請先登入")
+                     case '請先登入':
+                         alert("請先登入!")
                          break
                      default:
                          buttton.innerHTML = status;

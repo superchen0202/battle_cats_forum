@@ -19,20 +19,13 @@ Rails.application.routes.draw do
     end
 
     # /api/stories/:id/like
-    # resources :stories, only:[] do
-    #   member do
-    #     post :like 
-    #   end
-    # end 
+    resources :stories, only:[] do
+      member do
+        post :like 
+      end
+    end 
     
   end
-  
-  resources :stories, only:[] do
-    member do
-      post :like 
-    end
-  end 
-
 
   resources :stories do
     resources :comments, only: [:create]
