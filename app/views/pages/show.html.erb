@@ -33,7 +33,7 @@
             <footer data-controller="story">
                 <%= link_to '#', class: 'likeButton', data:{ action: "story#addLike", slug: @story.slug} do %>
                     <i class="far fa-thumbs-up"></i>
-                    <span class= "likeCounter" data-target="story.likeCounter">0</span>
+                    <span class= "likeCounter" data-target="story.likeCounter"><%= @story.likescounter %></span>
               <% end %>
             </footer>
 
