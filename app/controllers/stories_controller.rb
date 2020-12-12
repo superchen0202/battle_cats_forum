@@ -66,7 +66,7 @@ class StoriesController < ApplicationController
       if user_signed_in?
         @story = current_user.stories.friendly.find(params[:id])
         current_user.like!(@story)
-        render json: {status: Like.count }
+        render json: {status: current_user }
       else
         render json: {status: '請先登入'}
       end

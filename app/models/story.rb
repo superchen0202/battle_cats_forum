@@ -34,6 +34,7 @@ class Story < ApplicationRecord
   belongs_to :user
   has_one_attached :cover_img
   has_many :comments
+  has_many :likes
 
   #form validates
   validates :title, presence: true      
