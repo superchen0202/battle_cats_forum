@@ -9,12 +9,22 @@ export default class extends Controller {
 
         event.preventDefault();
         let slug = event.currentTarget.dataset.slug
+        let target = this.likeCounterTarget
+        //console.log(target)
 
         axios.post(`/stories/${slug}/like`)
                 
                 .then(function(response){
                     let status = response.data.status
-                    console.log(status)
+                    
+                    switch(status) {
+                        case "還沒登入":
+                            alert("請先登入！")
+                            break
+                        default:
+                            console.log(status)
+                            target.innerHTML = status;
+                    }
                 })
 
                 .catch(function(error){
