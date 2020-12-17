@@ -37,10 +37,10 @@ class User < ApplicationRecord
   def follow!(user)
     if follow?(user)
       follows.find_by(following: user).destroy
-      return "取消追蹤"
+      return "追蹤"
     else
       follows.create(following: user)
-      return "追蹤"
+      return "追蹤中"
     end
   end
 

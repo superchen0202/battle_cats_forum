@@ -18,12 +18,18 @@
                                                             user: @story.user.id,
                                                             target: 'user.followButton' } do %>
                                                             
-                 <%=  (user_signed_in? && current_user.follow?(@story.user)) ?  "追蹤": "取消追蹤" %>             
+                 <%=  (user_signed_in? && current_user.follow?(@story.user)) ?  "追蹤中": "追蹤" %>             
              <% end %>
 
             <!-- 收藏故事  -->
              <%= link_to '#', class: 'bookmark-button', data: { action: 'user#bookmark', slug: @story.slug  } do %>
-                <i class="fas fa-bookmark" data-target="user.bookmark"></i>
+    
+                <% if user_signed_in? && current_user.bookmark?(@story) %> 
+                    <i class="fas fa-bookmark" data-target="user.bookmark"></i>
+                <% else %>
+                    <i class="far fa-bookmark" data-target="user.bookmark"></i>
+                <% end %>
+
             <% end %>
         </span>
 

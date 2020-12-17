@@ -39,13 +39,34 @@ export default class extends Controller {
         event.preventDefault();
 
         let slug = event.currentTarget.dataset.slug
-        //console.log(`/api/users/${slug}/bookmark`);
+        let icon = this.bookmarkTarget
+        //console.log(icon);
 
         // /api/users/:id/bookmark
         axios.post(`/api/users/${slug}/bookmark`)
-            
+    
             .then(function(response){
-                console.log(response.data)
+        
+                let status = response.data.status
+                console.log(response.data);
+                
+                 switch(status){
+                    
+                    case '請先登入':
+                         alert("請先登入!")
+                         break;
+    
+                    case '收藏':
+                        icon.classList.remove('far')
+                        icon.classList.add('fas')
+                        break
+                    
+                    case '取消收藏':
+                        icon.classList.remove('fas')
+                        icon.classList.add('far')
+                        break
+                 }
+
             })
 
             .catch(function(error){
