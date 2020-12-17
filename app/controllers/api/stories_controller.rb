@@ -9,7 +9,7 @@ class Api::StoriesController < Api::BaseController
       
     private
     def find_story
-      @story = current_user.stories.friendly.find(params[:id])
+      @story = Story.friendly.find(params[:id])
     end
 
 end

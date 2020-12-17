@@ -3,7 +3,7 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
     
-    static targets = [ "likeCounter" ]
+    static targets = [ "likeCounter"]
     
     addLike(event){
 
@@ -31,5 +31,5 @@ export default class extends Controller {
                     console.log("error")
                 })    
     }
-    
+
 }
