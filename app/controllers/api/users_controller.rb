@@ -1,6 +1,6 @@
 class Api::UsersController < Api::BaseController
   
-  before_action :find_user
+  before_action :find_user, only: [:follow]
 
   # for APi
   def follow
@@ -8,6 +8,7 @@ class Api::UsersController < Api::BaseController
   end
 
   def bookmark
+    render json: {status: "收到API"}
   end
 
   private

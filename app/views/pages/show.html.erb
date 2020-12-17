@@ -4,9 +4,9 @@
         
         <h1 class="title"><%= @story.title %></h1>
 
-        <!-- Function Follow  -->
         <span class="profile" data-controller = "user">
             
+            <!-- 大頭貼 -->
             <figure class="media-right">
                 <%= image_tag @story.user.avatar.variant( resize: "50 x 50"), class: "avatar" if @story.user.avatar.attached? %>
             </figure>
@@ -21,16 +21,17 @@
                  <%=  (user_signed_in? && current_user.follow?(@story.user)) ?  "追蹤": "取消追蹤" %>             
              <% end %>
 
-             <!-- <%= link_to '#', class: 'bookmark-button', data: {action: 'user#bookmark', slug: @story.slug } do %>
-                <i class="fas fa-bookmark" data-target= "user.bookmark"></i>
-                <i class="far fa-bookmark"></i>
-             <% end %> -->
+            <!-- 收藏故事  -->
+             <%= link_to '#', class: 'bookmark-button', data: { action: 'user#bookmark', slug: @story.slug  } do %>
+                <i class="fas fa-bookmark" data-target="user.bookmark"></i>
+            <% end %>
         </span>
 
+        <!-- 故事內容：圖 + 文 -->
         <article class="content">
             
             <figure class="media-right">
-                <%= image_tag @story.cover_img.variant( resize: "1000 x 500"), class: "cover-img" if @story.cover_img.attached? %>
+                <%= image_tag @story.cover_img.variant( resize: "500 x 250"), class: "cover-img" if @story.cover_img.attached? %>
             </figure>
             
             <p><%= simple_format(@story.content) %></p>
@@ -47,6 +48,7 @@
         
         <hr>
 
+        <!-- 留言區 / 留言列表 -->
         <section class="comments">
             <h2>留言</h2>
             

@@ -7,15 +7,20 @@ Rails.application.routes.draw do
    registrations: 'users/registrations'
   }
 
-
   #API routes：
   namespace :api do
-    
-    # /api/users/:id/follow
     resources :users, only:[] do 
+      
+      # /api/users/:id/follow
       member do
         post :follow
       end
+
+      # /api/users/:id/bookmark
+      member do 
+        post :bookmark
+      end
+
     end
 
     # /api/stories/:id/like

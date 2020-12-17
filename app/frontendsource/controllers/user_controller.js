@@ -3,7 +3,7 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
     
-    static targets = [ "followButton" ]
+    static targets = [ "followButton", "bookmark" ]
 
     follow(event){
 
@@ -32,6 +32,25 @@ export default class extends Controller {
             .catch(function(error) {
                 console.log(error);
             }) 
+    }
+
+    bookmark(event){
+        
+        event.preventDefault();
+
+        let slug = event.currentTarget.dataset.slug
+        //console.log(`/api/users/${slug}/bookmark`);
+
+        // /api/users/:id/bookmark
+        axios.post(`/api/users/${slug}/bookmark`)
+            
+            .then(function(response){
+                console.log(response.data)
+            })
+
+            .catch(function(error){
+                console.log(error);
+            })
     }
 
 }
