@@ -1,6 +1,7 @@
 // Place all the styles related to the stories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import './editor';
 
 .navbar-link{
     .user-avatar{
@@ -14,7 +15,11 @@ form {
       display: block;
     }
 }
-  
+
+form.story-editor{
+    margin-bottom: 10em;
+}
+
 .story-content {
 
     // 作者

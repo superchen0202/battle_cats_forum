@@ -2,7 +2,7 @@
     <div class="notification is-danger"><%= story.errors.full_messages.to_sentence %></div>
 <% end %>
 
-<%= form_for story do |form| %>
+<%= form_for(story, html:{class: 'story-editor'}) do |form| %>
 
     <!--標題  -->
     <div class="field">
@@ -37,5 +37,6 @@
         <%= form.submit '發佈文章', name: 'publish', class: 'button is-medium is-primary' if story.may_publish? %>
         <%= form.submit '文章下架', name: 'unpublish', class: 'button is-medium is-danger' if story.may_unpublish? %>
     </div>
-
 <% end %>
+
+<%= javascript_pack_tag 'editor' %> 
