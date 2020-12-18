@@ -13,6 +13,19 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true   
 
+  enum role:{
+     user: 0,
+     vip_user: 1,
+     platinum_user: 2,
+     admin: 3
+  }
+
+  # for determine the view page
+  def paid_user?
+    return (vip_user? or platinum_user?)
+  end
+
+  # bookmark related function
   def bookmark?(story)
     bookmarks.exists?(story_id: story.id)
   end
@@ -30,6 +43,7 @@ class User < ApplicationRecord
 
   end
 
+  # follow related function
   def follow?(user)
     follows.exists?(following: user)
   end
@@ -44,6 +58,7 @@ class User < ApplicationRecord
     end
   end
 
+  # like related function
   def like?(story)
     likes.exists?(story_id: story.id)
   end

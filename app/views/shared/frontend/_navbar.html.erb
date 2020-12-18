@@ -52,6 +52,9 @@
               <%= link_to "故事列表", stories_path, method: 'get', class: "navbar-item" %>
               <%= link_to "新增故事", new_story_path, method: 'get', class: "navbar-item" %>
               <hr class="navbar-divider">
+
+              <%= link_to "升級會員", pricing_users_path, method: "get", class: "navbar-item" %>
+
               <%= link_to "登出", destroy_user_session_path, method: 'delete', class: "navbar-item", data: {confirm: "確定登出?"} %>
             </div>
           </div>
