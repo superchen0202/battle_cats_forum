@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   #API routes：
   namespace :api do
+    
     resources :users, only:[] do 
       
       # /api/users/:id/follow
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
       end
     end 
     
+    post :upload_image, to:'utils#upload_image'
   end
 
   resources :stories do

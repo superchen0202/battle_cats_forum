@@ -40,7 +40,7 @@
                 <%= image_tag @story.cover_img.variant( resize: "500 x 250"), class: "cover-img" if @story.cover_img.attached? %>
             </figure>
             
-            <p><%= simple_format(@story.content) %></p>
+            <p><%= @story.content.html_safe %></p>
 
             <!-- Like for some story -->
             <footer data-controller="story">
