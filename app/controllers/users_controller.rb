@@ -10,6 +10,10 @@ class UsersController < ApplicationController
         @client_token = gateway.client_token.generate
     end
 
+    def pay
+        render html: params
+    end
+
     private 
     def gateway
         

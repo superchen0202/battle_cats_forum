@@ -36,8 +36,20 @@
 
 <body>
 
+  <!-- 刷卡機表單 -->
+  <%= form_with url: pay_users_path, id: "payment-form", method: "post", local:true do |form| %>
 
-  <div id="dropin-container"></div>
+    <div id="dropin-container"></div>
+    <%= link_to "重新考慮", pricing_users_path, class:"button is-primary" %>
+    <button id="submit-button" class="button is-danger">結帳！</button>
+
+  <% end %>
+  
+  <!-- <form id="payment-form" action="/route/on/your/server" method="post"> -->
+    <!-- <div id="dropin-container"></div> -->
+    <!-- <input type="submit" /> -->
+    <!-- <input type="hidden" id="nonce" name="payment_method_nonce"/> -->
+  <!-- </form> -->
 
   <script type="text/javascript">
     document.addEventListener("turbolinks:load", function(event){
