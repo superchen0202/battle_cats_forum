@@ -1,3 +1,8 @@
+<head>
+  <meta charset="utf-8">
+  <script src="https://js.braintreegateway.com/web/dropin/1.25.0/js/dropin.min.js"></script>
+</head>
+
 <div class="box">
   
   <article class="media">
@@ -27,3 +32,33 @@
   </article>
 
 </div>
+
+
+<body>
+
+
+  <div id="dropin-container"></div>
+
+  <script type="text/javascript">
+    document.addEventListener("turbolinks:load", function(event){
+
+      braintree.dropin.create({
+          
+        container: document.getElementById('dropin-container'),
+        authorization: "<%= @client_token %>",
+        container: '#dropin-container'
+        })
+        
+        .then((dropinInstance) => {
+
+        })
+        
+        .catch((error) => {
+
+        });
+
+    })
+  </script>
+
+
+</body>

@@ -15,7 +15,7 @@ gem 'webpacker', '~> 5.2', '>= 5.2.1'
 gem 'mini_magick', '~> 4.11'
 gem 'paranoia', '~> 2.4', '>= 2.4.2'
 gem 'figaro', '~> 1.2'
-
+gem "braintree", "~> 3.1.0"
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
