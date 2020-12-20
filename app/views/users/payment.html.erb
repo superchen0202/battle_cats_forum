@@ -37,7 +37,7 @@
 <body>
 
   <!-- 刷卡機表單 -->
-  <%= form_with url: pay_users_path, id: "payment-form", method: "post", local:true do |form| %>
+  <%= form_with url: pay_users_path(type: params[:type]), id: "payment-form", method: "post", local:true do |form| %>
 
     <%= form.hidden_field :payment_nonce %>
     <div id="dropin-container"></div>

@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
     
     def pricing
-
     end
 
     def payment
@@ -11,7 +10,29 @@ class UsersController < ApplicationController
     end
 
     def pay
-        render html: params
+        
+        #Test for get the nonce from braintree or not
+        #render html: params
+
+        fee = ENV["price_#{params[:type]}"]
+        nonce = params[:payment_nonce]
+    
+        result = gateway.transaction.sale(
+          amount: fee,
+          payment_method_nonce: nonce,
+          options: {
+            submit_for_settlement: true
+          }
+        )
+    
+        
+        if result.success?
+            current_user.send("#{params[:type]}_user!")   # meta programming
+            redirect_to root_path, notice: '付費成功'
+        else
+            redirect_to root_path, notice: '付費發生錯誤'
+        end
+
     end
 
     private 
