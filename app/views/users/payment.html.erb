@@ -51,23 +51,24 @@
 
     document.addEventListener("turbolinks:load", function(event){
 
+      let button = document.querySelector("#submit-button");
+      let form = document.querySelector("#payment-form");
+
       braintree.dropin.create({
           
-        container: document.getElementById('dropin-container'),
-        authorization: "<%= @client_token %>",
-        container: '#dropin-container'
+          container: '#dropin-container',
+          authorization: "<%= @client_token %>"        
         })
         
         .then((dropinInstance) => {
 
-          form.addEventListener('submit', (event) => {
+          button.addEventListener('click', (event) => {
             
               event.preventDefault();  
               dropinInstance.requestPaymentMethod()
                 
                 .then((payload) => {
                   document.getElementById('payment_nonce').value = payload.nonce;
-                  console.log(payload.nonce)
                   form.submit();
                 })
                 
