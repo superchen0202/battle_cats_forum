@@ -19,3 +19,4 @@ console.log('哩跨三小!')
 
 import "controllers"
 import '../stylesheets'
+import "scripts"
