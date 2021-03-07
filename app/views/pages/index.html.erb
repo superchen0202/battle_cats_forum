@@ -1,20 +1,26 @@
+<h1 class="title has-text-info">最近貓友們都在看...</h1>
+
 <!-- upside -->
 <section class="columns">
-    
+        
     <!-- left -->
     <section class="column">
         
-        <article>
-        <figure class="image"><img src="https://fakeimg.pl/350x150/f0f0f0" alt=""></figure>
-        <h2 class="title is-5">Creating a Pipeline to True Workplace Diversity</h2>
-        
-        <p class="content">Providing resources, offering acceptance, and involving people of color are keys to making your company more diverse...</p>
-        
-        <footer>
-            <p>Arielle Wiltz in Modus</p>
-            <p>Aug 7</p>
-        </footer>
+        <h1 class="title"><%= @top1.title %></h1>
 
+        <article>
+
+            <% if @top1.cover_img.attached? %>
+                <figure class="media-right"><%= image_tag @top1.cover_img.variant( resize: "150 x 150"), class: "cover-img" %></figure>
+            <% end %>
+            
+            <p class="title is-5"><%= strip_tags(@top1.content).truncate(150) %></p>
+            
+            <footer>
+                <p class="has-text-grey-dark"><%= @top1.user.username %></p>
+                <p><%= @top1.created_at %></p> 
+            </footer>
+            
         </article>
 
     </section>
@@ -23,16 +29,20 @@
     <section class="column">
 
         <!-- Article 1 -->
-        <article class="media">
+        <article class="media   ">
         
-        <figure class="media-left"><img src="https://fakeimg.pl/100x100/"></figure>
+        <% if @top2.cover_img.attached? %>
+                <figure class="media-right"><%= image_tag @top2.cover_img.variant( resize: "150 x 150"), class: "cover-img" %></figure>
+        <% end %>
 
         <div class="media-content">
-            <h2 class="title is-5">I Worked for an Amish Reality TV Show</h2>
+            <h2 class="title is-5"><%= @top2.title %></h2>
             
+            <p class="title is-5"><%= strip_tags(@top2.content).truncate(50) %></p>
+
             <footer>
-            <p>Arielle Wiltz in Modus</p>
-            <p>Aug 7</p>
+                <p><%= @top2.user.username %></p>
+                <p><%= @top2.created_at %></p>
             </footer>
         </div>
         </article>
@@ -40,29 +50,18 @@
         <!-- Article 2 -->
         <article class="media">
         
-        <figure class="media-left"><img src="https://fakeimg.pl/100x100/"></figure>
+        <% if @top3.cover_img.attached? %>
+            <figure class="media-right"><%= image_tag @top3.cover_img.variant( resize: "150 x 150"), class: "cover-img" %></figure>
+        <% end %>
 
         <div class="media-content">
-            <h2 class="title is-5">I Worked for an Amish Reality TV Show</h2>
+            <h2 class="title is-5"><%= @top3.title %></h2>
             
-            <footer>
-            <p>Arielle Wiltz in Modus</p>
-            <p>Aug 7</p>
-            </footer>
-        </div>
-        </article>
+            <p class="title is-5"><%= strip_tags(@top3.content).truncate(50) %></p>
 
-        <!-- Article 3 -->
-        <article class="media">
-        
-        <figure class="media-left"><img src="https://fakeimg.pl/100x100/"></figure>
-
-        <div class="media-content">
-            <h2 class="title is-5">I Worked for an Amish Reality TV Show</h2>
-            
             <footer>
-            <p>Arielle Wiltz in Modus</p>
-            <p>Aug 7</p>
+                <p><%= @top3.user.username %></p>
+                <p><%= @top3.created_at %></p>
             </footer>
         </div>
         </article>
@@ -70,7 +69,7 @@
     </section>
 
     <!-- middle_right -->
-    <section class="column">
+    <!-- <section class="column">
         
         <article>
         <figure class="image"><img src="https://fakeimg.pl/350x200/f0f0f0" alt=""></figure>
@@ -83,7 +82,7 @@
             <p>Aug 7</p>
         </footer>
         </article>
-    </section>
+    </section> -->
 
 </section>
 
@@ -92,14 +91,14 @@
 <!-- bottom -->
 <section class="columns">
 
-<!-- article list_left -->
-<section class="column is-two-thirds">
+<!-- article list_left class="column is-two-thirds"-->
+<section class="column">
 
     <% @stories.each do |story| %>
 
     <article class="media">
         <div class="media-content">
-            <h2 class="title is-4"><%= link_to story.title, story_page_path(story.user.username, story), class: "has-text-grey-dark" %></h2>
+            <h2 class="title is-4 has-text-primary"><%= link_to story.title, story_page_path(story.user.username, story), class: "has-text-grey-dark" %></h2>
             <p class="content"><%= strip_tags(story.content).truncate(150) %></p>
             <footer><p><%= link_to story.user.username, user_page_path(story.user.username), class: "has-text-grey-dark" %> | <%= story.created_at %></p></footer>
         </div>
@@ -112,7 +111,7 @@
 </section>
 
 <!-- article list_right -->
-<section class="column">
+<!-- <section class="column">
     
     <h2 class="title is-4">Popular on Medium</h2>
     <hr>
@@ -166,6 +165,6 @@
         </footer>
     </div>
     </article>
-</section>
+</section> -->
 
 </section>

@@ -6,7 +6,19 @@ class PagesController < ApplicationController
         #@stories = Story.order(created_at: :desc).includes(:user)
         #@stories = Story.where(status: "published").order(created_at: :desc).includes(:user)
         #@stories = Story.published_stories.order(created_at: :desc).includes(:user)
-        @stories = Story.published_stories
+
+        @stories = Story.published_stories.includes(:likes)
+        @hots = @stories.sort_by{ |story| story.likes.count }
+
+        @top1 =  @hots[-1]
+        @top2 =  @hots[-2]
+        @top3 =  @hots[-3]
+
+        # @hots.each do |hot|
+        #     p hot.title 
+        #     p hot.likes.count
+        # end
+
     end
 
     #find the article user selected to hanlde.
