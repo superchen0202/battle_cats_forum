@@ -3,18 +3,18 @@
 <!-- upside -->
 <section class="columns">
         
-    <!-- left -->
+    <!-- left --> 
     <section class="column">
         
-        <h1 class="title"><%= @top1.title %></h1>
-
+        <h2 class="title is-3"><%= @top1.title %></h2>
+        
         <article>
 
             <% if @top1.cover_img.attached? %>
                 <figure class="media-right"><%= image_tag @top1.cover_img.variant( resize: "150 x 150"), class: "cover-img" %></figure>
             <% end %>
             
-            <p class="title is-5"><%= strip_tags(@top1.content).truncate(150) %></p>
+            <p class="title is-5"><%= strip_tags(@top1.content).truncate(75) %></p>
             
             <footer>
                 <p class="has-text-grey-dark"><%= @top1.user.username %></p>
@@ -24,21 +24,22 @@
         </article>
 
     </section>
+  
 
     <!-- middle_left -->
     <section class="column">
 
         <!-- Article 1 -->
-        <article class="media   ">
+        <article class="media">
         
         <% if @top2.cover_img.attached? %>
                 <figure class="media-right"><%= image_tag @top2.cover_img.variant( resize: "150 x 150"), class: "cover-img" %></figure>
         <% end %>
 
         <div class="media-content">
-            <h2 class="title is-5"><%= @top2.title %></h2>
+            <h2 class="title is-3"><%= @top2.title %></h2>
             
-            <p class="title is-5"><%= strip_tags(@top2.content).truncate(50) %></p>
+            <p><%= strip_tags(@top2.content).truncate(50) %></p>
 
             <footer>
                 <p><%= @top2.user.username %></p>
@@ -55,9 +56,9 @@
         <% end %>
 
         <div class="media-content">
-            <h2 class="title is-5"><%= @top3.title %></h2>
+            <h2 class="title is-3"><%= @top3.title %></h2>
             
-            <p class="title is-5"><%= strip_tags(@top3.content).truncate(50) %></p>
+            <p"><%= strip_tags(@top3.content).truncate(50) %></p>
 
             <footer>
                 <p><%= @top3.user.username %></p>
@@ -91,24 +92,26 @@
 <!-- bottom -->
 <section class="columns">
 
-<!-- article list_left class="column is-two-thirds"-->
-<section class="column">
+    <!-- article list_left class="column is-two-thirds"-->
+    <section class="column">
 
-    <% @stories.each do |story| %>
+        <% @stories.each do |story| %>
 
-    <article class="media">
-        <div class="media-content">
-            <h2 class="title is-4 has-text-primary"><%= link_to story.title, story_page_path(story.user.username, story), class: "has-text-grey-dark" %></h2>
-            <p class="content"><%= strip_tags(story.content).truncate(150) %></p>
-            <footer><p><%= link_to story.user.username, user_page_path(story.user.username), class: "has-text-grey-dark" %> | <%= story.created_at %></p></footer>
-        </div>
+        <article class="media">
 
-        <% if story.cover_img.attached? %>
-             <figure class="media-right"><%= image_tag story.cover_img.variant( resize: "150 x 150"), class: "cover-img" %></figure>
+            <% if story.cover_img.attached? %>
+                <figure class="media-right"><%= image_tag story.cover_img.variant( resize: "250 x 250"), class: "cover-img" %></figure>
+            <% end %>
+
+            <div class="media-content">
+                <h2 class="title is-4 has-text-primary"><%= link_to story.title, story_page_path(story.user.username, story), class: "has-text-grey-dark" %></h2>
+                <p class="content"><%= strip_tags(story.content).truncate(150) %></p>
+                <footer><p><%= link_to story.user.username, user_page_path(story.user.username), class: "has-text-grey-dark" %> | <%= story.created_at %></p></footer>
+            </div>
+
+        </article>
         <% end %>
-    </article>
-    <% end %>
-</section>
+    </section>
 
 <!-- article list_right -->
 <!-- <section class="column">
@@ -166,5 +169,4 @@
     </div>
     </article>
 </section> -->
-
 </section>
