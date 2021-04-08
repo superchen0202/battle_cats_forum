@@ -37,4 +37,4 @@ Ensure that Ruby has installed already, then go ahead with this step.
 * `sudo apt-get install nodejs`	  #Problems may be occurred when installing Rails, because there are some JS code in Rails be executed through node.js. Corresponding solution for this is installing node.js before Rails.
 
 ## Give some feedbacks for me ##
-* I'm a starter of Rails, this is the first time I try to write README.md file. If some descriptoins are ambiguios or aren't work for your problem, please feel free to give me some suggestion to make it better, thanks!
+* I'm a starter of Rails, this is the first time I try to write README.md file. If some descriptoins are ambiguios or not work for your problem, please feel free to give me some suggestion to make it better, thanks!
