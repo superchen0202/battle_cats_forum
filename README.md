@@ -1,9 +1,9 @@
 # README
 
-The app development information present as below:
-Ruby: 2.6.5, Rails: 5.2.4.5
-OS: Windows-Subsystem-Linux(Ubuntu 18.04 LTS)
-DB: PostgreSQL
+The app development information present as below: </br>
+Ruby: 2.6.5, Rails: 5.2.4.5 </br>
+OS: Windows-Subsystem-Linux(Ubuntu 18.04 LTS) </br>
+DB: PostgreSQL </br>
 
 * Make sure the tools in need has been already installed and version cannot older than app used. If you have problems in Ruby or Rails installation, instructions are elaborated in the end.
 
