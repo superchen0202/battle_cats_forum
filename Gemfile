@@ -8,7 +8,7 @@ gem 'rails', '~> 6.1', '>= 6.1.3.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'devise', '~> 4.2'
-gem 'aasm', '~> 4.11'
+gem 'aasm','~> 4.11'
 gem 'friendly_id', '~> 5.4', '>= 5.4.1'
 gem 'babosa', '~> 1.0', '>= 1.0.4'
 gem 'webpacker', '~> 5.2', '>= 5.2.1'
@@ -16,6 +16,8 @@ gem 'mini_magick', '~> 4.11'
 gem 'paranoia', '~> 2.4', '>= 2.4.2'
 gem 'figaro', '~> 1.2'
 gem "braintree", "~> 3.1.0"
+gem "actionpack", ">= 6.1.4.1"
+gem 'image_processing', '~> 1.12', '>= 1.12.1'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'

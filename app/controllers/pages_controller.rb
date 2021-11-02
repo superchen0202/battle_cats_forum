@@ -3,9 +3,9 @@ class PagesController < ApplicationController
     before_action :find_story, only: [:show]
     
     def index
-        #@stories = Story.order(created_at: :desc).includes(:user)
-        #@stories = Story.where(status: "published").order(created_at: :desc).includes(:user)
-        #@stories = Story.published_stories.order(created_at: :desc).includes(:user)
+        @stories = Story.order(created_at: :desc).includes(:user)
+        @stories = Story.where(status: "published").order(created_at: :desc).includes(:user)
+        @stories = Story.published_stories.order(created_at: :desc).includes(:user)
 
         @stories = Story.published_stories.includes(:likes)
         @hots = @stories.sort_by{ |story| story.likes.count }
@@ -14,10 +14,10 @@ class PagesController < ApplicationController
         @top2 =  @hots[-2]
         @top3 =  @hots[-3]
 
-        # @hots.each do |hot|
-        #     p hot.title 
-        #     p hot.likes.count
-        # end
+        @hots.each do |hot|
+            p hot.title 
+            p hot.likes.count
+        end
 
     end
 
