@@ -4,68 +4,72 @@
 <section class="columns">
         
     <!-- left --> 
-    <section class="column">
-        
-        <h2 class="title is-3"><%= @top1.title %></h2>
+     <section class="column">
+        <%= link_to story_page_path(@stories[0].user.username, @stories[0]) do %>
+       
+        <h2 class="title is-3"><%= @stories[0].title %></h2>
         
         <article>
 
-            <% if @top1.cover_img.attached? %>
-                <figure class="media-right"><%= image_tag @top1.cover_img.variant( resize: "150 x 150"), class: "cover-img" %></figure>
+            <% if @stories[0].cover_img.attached? %>
+                <figure class="media-right"><%= image_tag @stories[0].cover_img.variant( resize: "150 x 150"), class: "cover-img" %></figure>
             <% end %>
             
-            <p class="title is-5"><%= strip_tags(@top1.content).truncate(75) %></p>
+            <p class="title is-5"><%= strip_tags(@stories[0].content).truncate(75) %></p>
             
             <footer>
-                <p class="has-text-grey-dark"><%= @top1.user.username %></p>
-                <p><%= @top1.created_at %></p> 
+                <p class="has-text-grey-dark"><%= @stories[0].user.username %></p>
+                <p><%= @stories[0].created_at %></p> 
             </footer>
             
         </article>
-
+        <% end %> 
     </section>
-  
 
     <!-- middle_left -->
     <section class="column">
-
-        <!-- Article 1 -->
-        <article class="media">
         
-        <% if @top2.cover_img.attached? %>
-                <figure class="media-right"><%= image_tag @top2.cover_img.variant( resize: "150 x 150"), class: "cover-img" %></figure>
-        <% end %>
-
-        <div class="media-content">
-            <h2 class="title is-3"><%= @top2.title %></h2>
+        <!-- Article 1 -->
+        <%= link_to story_page_path(@stories[1].user.username, @stories[1]) do %>
+            <article class="media">
             
-            <p><%= strip_tags(@top2.content).truncate(50) %></p>
+            <% if @stories[1].cover_img.attached? %>
+                    <figure class="media-right"><%= image_tag @stories[1].cover_img.variant( resize: "150 x 150"), class: "cover-img" %></figure>
+            <% end %>
 
-            <footer>
-                <p><%= @top2.user.username %></p>
-                <p><%= @top2.created_at %></p>
-            </footer>
-        </div>
-        </article>
+            <div class="media-content">
+                <h2 class="title is-3"><%= @stories[1].title %></h2>
+                
+                <p><%= strip_tags(@stories[1].content).truncate(50) %></p>
+
+                <footer>
+                    <p><%= @stories[1].user.username %></p>
+                    <p><%= @stories[1].created_at %></p>
+                </footer>
+            </div>
+            </article>
+        <% end %>
 
         <!-- Article 2 -->
-        <article class="media">
-        
-        <% if @top3.cover_img.attached? %>
-            <figure class="media-right"><%= image_tag @top3.cover_img.variant( resize: "150 x 150"), class: "cover-img" %></figure>
-        <% end %>
-
-        <div class="media-content">
-            <h2 class="title is-3"><%= @top3.title %></h2>
+        <%= link_to story_page_path(@stories[2].user.username, @stories[2]) do %>
+            <article class="media">
             
-            <p"><%= strip_tags(@top3.content).truncate(50) %></p>
+            <% if @stories[2].cover_img.attached? %>
+                <figure class="media-right"><%= image_tag @stories[2].cover_img.variant( resize: "150 x 150"), class: "cover-img" %></figure>
+            <% end %>
 
-            <footer>
-                <p><%= @top3.user.username %></p>
-                <p><%= @top3.created_at %></p>
-            </footer>
-        </div>
-        </article>
+            <div class="media-content">
+                <h2 class="title is-3"><%= @stories[2].title %></h2>
+                
+                <p"><%= strip_tags(@stories[2].content).truncate(50) %></p>
+
+                <footer>
+                    <p><%= @stories[2].user.username %></p>
+                    <p><%= @stories[2].created_at %></p>
+                </footer>
+            </div>
+            </article>
+        <% end %>
 
     </section>
 
